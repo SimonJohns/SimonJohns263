@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html lang="en">
+<head>
+	<title>Interactive Component - Environmental Impact of Data Centers</title>
+	<meta charset="utf-8">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+	<!--[if IE 6]>
+		<link href="css/ie6.css" rel="stylesheet" type="text/css">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet" type="text/css">
+	<![endif]-->
+	<style>
+		/* Calculator styles */
+		.calc-intro {
+			font-size: 14px;
+			color: #555;
+			margin: 0 0 18px;
+			line-height: 1.6;
+		}
+		.calc-section {
+			margin-bottom: 18px;
+		}
+		.calc-section-title {
+			font-size: 14px;
+			font-weight: bold;
+			color: #3a5c2a;
+			margin: 0 0 10px;
+			border-bottom: 1px solid #c8ddb8;
+			padding-bottom: 4px;
+		}
+		.calc-row {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 8px;
+		}
+		.calc-row label {
+			font-size: 13px;
+			color: #444;
+			min-width: 200px;
+			flex-shrink: 0;
+		}
+		.calc-row input[type=range] {
+			flex: 1;
+			accent-color: #5a8a3a;
+		}
+		.calc-row .val {
+			font-size: 13px;
+			font-weight: bold;
+			min-width: 40px;
+			text-align: right;
+			color: #3a5c2a;
+		}
+		.calc-divider {
+			border: none;
+			border-top: 1px solid #c8ddb8;
+			margin: 18px 0;
+		}
+		.metrics-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			margin: 14px 0;
+		}
+		.metric-card {
+			background: #f0f6e8;
+			border: 1px solid #c8ddb8;
+			border-radius: 6px;
+			padding: 10px 8px;
+			text-align: center;
+		}
+		.metric-card .m-label {
+			font-size: 11px;
+			color: #5a7a4a;
+			margin-bottom: 4px;
+		}
+		.metric-card .m-number {
+			font-size: 20px;
+			font-weight: bold;
+			color: #3a5c2a;
+			line-height: 1.2;
+		}
+		.metric-card .m-unit {
+			font-size: 11px;
+			color: #7a9a6a;
+		}
+		.score-wrap {
+			margin: 14px 0;
+		}
+		.score-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 4px;
+		}
+		.score-top span {
+			font-size: 13px;
+			font-weight: bold;
+			color: #3a5c2a;
+		}
+		.score-top .score-label {
+			font-size: 13px;
+			font-weight: normal;
+			color: #666;
+		}
+		.bar-bg {
+			height: 14px;
+			background: #dde8cc;
+			border-radius: 7px;
+			overflow: hidden;
+			margin-bottom: 3px;
+		}
+		.bar-fill {
+			height: 100%;
+			border-radius: 7px;
+			transition: width 0.35s, background 0.35s;
+			background: #5a8a3a;
+		}
+		.bar-ends {
+			display: flex;
+			justify-content: space-between;
+			font-size: 11px;
+			color: #7a9a6a;
+		}
+		.tips-box {
+			background: #f6fbf0;
+			border: 1px solid #c8ddb8;
+			border-radius: 6px;
+			padding: 14px 16px;
+			margin-top: 16px;
+		}
+		.tips-box h3 {
+			font-size: 14px;
+			font-weight: bold;
+			color: #3a5c2a;
+			margin: 0 0 10px;
+		}
+		.tip-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 8px;
+			margin-bottom: 8px;
+			font-size: 13px;
+			color: #444;
+			line-height: 1.5;
+		}
+		.tip-item i {
+			font-size: 16px;
+			color: #5a8a3a;
+			margin-top: 1px;
+			flex-shrink: 0;
+		}
+		@media (max-width: 500px) {
+			.metrics-grid { grid-template-columns: repeat(2, 1fr); }
+			.calc-row label { min-width: 140px; font-size: 12px; }
+		}
+	</style>
+</head>
+<body>
+	<div id="background">
+		<div id="page">
+			<div id="body">
+				<div id="sidebar"> <a id="logo" href="index.html">&nbsp;</a>
+					<ul>
+						<li>
+							<a href="Water.html">Water usage</a>
+						</li>
+						<li>
+							<a href="Energy.html">Energy usage</a>
+						</li>
+						<li>
+							<a href="Scarce.html">Building in already scarce regions</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content">
+					<div id="header">
+						<ul class="navigation">
+							<li class="first">
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="stakeholders.html">Stakeholders</a>
+							</li>
+							<li>
+								<a href="Options.html">Options</a>
+							</li>
+							<li>
+								<a class="active" href="interactive.html">Interactive Component</a>
+							</li>
+							<li>
+							<a href="WhereToLearnMore.html">More</a>
+							</li>
+						</ul>
+					</div>
+					<div class="body">
+						<div class="content">
+							<h2>Environmental Impact Calculator</h2>
+
+							<p class="calc-intro">
+								Data centers do not only serve corporations, they power every search, stream, and AI query you make. Adjust the sliders below to match your typical week and see your estimated share of data center energy, water, and carbon emissions. Responsibility isn't only with big tech, but your consumer demand drives data center growth too. 
+							</p>
+
+							<!-- AI Tools -->
+							<div class="calc-section">
+								<p class="calc-section-title">AI tools</p>
+								<div class="calc-row">
+									<label for="ai">AI chatbot queries per day</label>
+									<input type="range" id="ai" min="0" max="100" value="10" step="1">
+									<span class="val" id="ai-out">10</span>
+								</div>
+								<div class="calc-row">
+									<label for="img">AI image generations per day</label>
+									<input type="range" id="img" min="0" max="50" value="2" step="1">
+									<span class="val" id="img-out">2</span>
+								</div>
+							</div>
+
+							<!-- Streaming -->
+							<div class="calc-section">
+								<p class="calc-section-title">Streaming</p>
+								<div class="calc-row">
+									<label for="vid">Video streaming (hours/day)</label>
+									<input type="range" id="vid" min="0" max="12" value="2" step="0.5">
+									<span class="val" id="vid-out">2</span>
+								</div>
+								<div class="calc-row">
+									<label for="music">Music streaming (hours/day)</label>
+									<input type="range" id="music" min="0" max="16" value="1" step="0.5">
+									<span class="val" id="music-out">1</span>
+								</div>
+							</div>
+
+							<!-- Browsing & Email -->
+							<div class="calc-section">
+								<p class="calc-section-title">Browsing, email &amp; calls</p>
+								<div class="calc-row">
+									<label for="email">Emails sent per day</label>
+									<input type="range" id="email" min="0" max="200" value="30" step="1">
+									<span class="val" id="email-out">30</span>
+								</div>
+								<div class="calc-row">
+									<label for="browse">Web browsing (hours/day)</label>
+									<input type="range" id="browse" min="0" max="12" value="3" step="0.5">
+									<span class="val" id="browse-out">3</span>
+								</div>
+								<div class="calc-row">
+									<label for="vc">Video calls (hours/day)</label>
+									<input type="range" id="vc" min="0" max="8" value="1" step="0.5">
+									<span class="val" id="vc-out">1</span>
+								</div>
+							</div>
+
+							<hr class="calc-divider">
+
+							<p class="calc-section-title">Your estimated weekly footprint: </p>
+
+							<div class="metrics-grid">
+								<div class="metric-card">
+									<div class="m-label">Energy</div>
+									<div class="m-number" id="energy-val">—</div>
+									<div class="m-unit">Wh / week</div>
+								</div>
+								<div class="metric-card">
+									<div class="m-label">Water</div>
+									<div class="m-number" id="water-val">—</div>
+									<div class="m-unit">litres / week</div>
+								</div>
+								<div class="metric-card">
+									<div class="m-label">Carbon</div>
+									<div class="m-number" id="carbon-val">—</div>
+									<div class="m-unit">g CO2 / week</div>
+								</div>
+								<div class="metric-card">
+									<div class="m-label">Equivalent to</div>
+									<div class="m-number" id="equiv-val">—</div>
+									<div class="m-unit">km driven</div>
+								</div>
+							</div>
+
+							<div class="score-wrap">
+								<div class="score-top">
+									<span>Impact level</span>
+									<span class="score-label" id="score-text"></span>
+								</div>
+								<div class="bar-bg">
+									<div class="bar-fill" id="score-bar" style="width:0%"></div>
+								</div>
+								<div class="bar-ends">
+									<span>Low</span>
+									<span>High</span>
+								</div>
+							</div>
+
+							<div class="tips-box">
+								<h3>How to reduce your footprint</h3>
+								<div id="tips-list"></div>
+							</div>
+
+							<p style="font-size:11px;color:#010101;margin-top:14px;">
+								Estimates based on published research, which depending on the various factors data could have differences absed on your personal circumstances. AI text query: ~3 Wh; AI image generation: ~40 Wh; HD video streaming: ~36 Wh/hr; video call: ~25 Wh/hr; music streaming: ~2 Wh/hr; web browsing: ~12 Wh/hr; email: ~0.04 Wh each. Water and carbon derived from US grid averages (0.233 kg CO2/kWh, 1.8 L/kWh).
+							</p>
+
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+
+	<script>
+		const sliders = ['ai','img','vid','music','email','browse','vc'];
+		sliders.forEach(function(id) {
+			var el =document.getElementById(id);
+			el.addEventListener('input', function() {
+				document.getElementById(id + '-out').textContent= el.value;
+				calculate();
+			});
+		});
+
+		function calculate() {
+			var ai= parseFloat(document.getElementById('ai').value);
+			var img= parseFloat(document.getElementById('img').value);
+			var vid = parseFloat(document.getElementById('vid').value);
+			var music= parseFloat(document.getElementById('music').value);
+			var email= parseFloat(document.getElementById('email').value);
+			var browse=parseFloat(document.getElementById('browse').value);
+			var vc= parseFloat(document.getElementById('vc').value);
+
+			var days= 7;
+			var aiWh= ai* 3* days;
+			var imgWh= img* 40* days;
+			var vidWh= vid* 36* days;
+			var musicWh= music* 2* days;
+			var emailWh= email* 0.04* days;
+			var browseWh= browse* 12* days;
+			var vcWh= vc* 25* days;
+			var totalWh= aiWh+ imgWh+ vidWh+ musicWh+ emailWh+ browseWh+ vcWh;
+
+			var waterL= totalWh * 0.0018;
+			var carbonG= totalWh * 0.233;
+			var kmDriven= carbonG / 120;
+
+			document.getElementById('energy-val').textContent= Math.round(totalWh).toLocaleString();
+			document.getElementById('water-val').textContent= waterL.toFixed(1);
+			document.getElementById('carbon-val').textContent= Math.round(carbonG).toLocaleString();
+			document.getElementById('equiv-val').textContent= kmDriven.toFixed(1);
+
+			var score= Math.min(100, Math.round(totalWh / 80));
+			var bar= document.getElementById('score-bar');
+			bar.style.width= score + '%';
+
+			var color, label;
+			if (score < 25)      { color= '#5a8a3a'; label= 'Low impact'; }
+			else if (score < 55) { color= '#d4900a'; label='Moderate impact'; }
+			else if (score < 80) { color= '#c05a20'; label= 'High impact'; }
+			else                 { color= '#b02020'; label= 'Very high impact'; }
+			bar.style.background= color;
+			document.getElementById('score-text').textContent = label;
+
+			var tips= [];
+			if (ai > 20)  tips.push('Do less AI Queries :)');
+			if (img > 5)  tips.push('AI image generation is one of the most energy intensive actions online. Cutting from ' + img + ' to 2 images/day would reduce that portion of your footprint by ' + Math.round((1 - 2/img) * 100) + '%.');
+			if (vid > 3)  tips.push('Lowering streaming resolution can cut video data use.');
+			if (vc > 2)   tips.push('Turning off your camera during audio only calls reduces video call data');
+			if (email > 50) tips.push('Unsubscribing from mailing lists and avoiding reply all chains reduces email server load across millions of data centers.');
+			if (browse > 5) tips.push('Closing unused browser tabs and reducing background content loowers your browsing footprint.');
+			if (tips.length=== 0) tips.push('The biggeest levers for most people are AI use and video streaming');
+
+			var html= '';
+			for (var i= 0; i < tips.length; i++) {
+				html+='<div class="tip-item"><i class="ti ti-leaf" aria-hidden="true"></i><span>' + tips[i] + '</span></div>';
+			}
+			document.getElementById('tips-list').innerHTML= html;
+		}
+
+		calculate();
+	</script>
+</body>
+</html>
