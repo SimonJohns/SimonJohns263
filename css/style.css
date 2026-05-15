@@ -789,3 +789,19 @@ a {
 	text-align:center;
 	background:url('../images/bg-footer3.jpg');
 }
+#background #page #body #content {
+    min-height: 800px !important;
+    overflow: visible !important;
+    float: left !important;
+    width: 632px !important;
+}
+
+#background #page #body #content .body {
+    display: block !important;
+    width: 632px !important;
+}
+
+#background #page #body #content .body .content {
+    display: block !important;
+    width: 612px !important;
+}
