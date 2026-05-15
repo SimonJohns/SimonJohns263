@@ -200,6 +200,7 @@ a {
 	width:632px;
 	float:left;
 	overflow:hidden;
+	min-height:800px;
 }
 #background #page #body #content #header {
 	width:632px;
